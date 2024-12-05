@@ -1,0 +1,81 @@
+:root {
+    --color-primario: #af0745;
+    --color-secundario: #fa4069;
+    --bg: #fe9c6b;
+    --text-size: 1.5rem;
+    --color-text: #ffff;
+}
+
+body {
+    font-family: "Delius", serif;
+    background: rgb(254, 156, 107);
+    background: linear-gradient(90deg, rgba(254, 156, 107, 1) 0%, rgba(250, 64, 105, 1) 50%, rgba(254, 156, 107, 1) 100%);
+    height: 100vh;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+}
+.container{
+    max-width: 80%;
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 40px;
+
+}
+.encabezado{
+    padding: 10px 0 5px 0;
+}
+.agregar{
+    background-color: var(--bg);
+    border-radius: 15px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 70px;
+}
+.agregar input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: #fa4069;
+    padding-left: 10px;
+}
+#input::placeholder{
+    font-size: 1.1rem;
+color: var(--color-text);
+}
+.agregar i{
+    font-size: 45px;
+    color: var(--color-primario);
+}
+.agregar i:hover{
+    transform: scale(1.1);
+}
+/* Seccion tareas */
+.tareas h2{
+margin-bottom: 20x;
+}
+.tareas{
+    font-size: 25px;
+}
+.tareas li{
+    background-color: var(--bg);
+    border-radius: 15px;
+    padding: 10px;
+    color: #ffff;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+#lista li:hover{
+    color: #fe9c6b;
+
+}
+.tachado{
+    text-decoration: line-through;
+    color: #fa4069;
+}
