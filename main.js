@@ -21,7 +21,7 @@
 // ' '[]
 
 const fecha = document.querySelector('#fecha');
-const list = document.querySelector('#lista');
+const lista = document.querySelector('#lista');
 const elemento = document.querySelector('#elemento');
 const input = document.querySelector('#input');
 const botonAgregar = document.querySelector('#botonAgregar');
@@ -37,6 +37,8 @@ fecha.innerHTML = FECHA.toLocaleDateString('es-MX', {
     month: 'short',
     day: 'numeric',
 });
+
+// funcion agregar tarea
 function agregarTarea(tarea, id, hecho, eliminar) {
     if (eliminar) {
         return
@@ -48,21 +50,22 @@ function agregarTarea(tarea, id, hecho, eliminar) {
 <p class="tarealista text ${LINE}">${tarea}</p>
 <i id="${id}" data="eliminar" class="bi bi-trash3"></i>
 </li>`
+lista.insertAdjacentHTML("beforeend",elemento);
 };
 function tareaRealizada(element) {
-    elemento.classlist.toggle(check);
-    elemento.classlist.toggle(uncheck);
-    elemento.parentNode.querySelector('.text').classlist.toggle(tachado);
-    LIST[elemento.id].realizado = LIST[element.id].realizado ? false : true;
+    element.classlist.toggle(check);
+    element.classlist.toggle(uncheck);
+    element.parentNode.querySelector('.text').classList.toggle(tachado);
+    LIST[element.id].realizado = LIST[element.id].realizado ? false : true;
 };
 function tareaEliminada(element) {
     element.parentNode.parentNode.removeChild(element.parentNode);
     LIST[element.id].eliminar = true;
 };
 botonAgregar.addEventListener("click", () =>{
-    const tarea = input.value
+    const tarea = input.value;
     if(tarea) {
-        agregarTarea(tarea, id, false, unfalse)
+        agregarTarea(tarea, id, false, false)
         LIST.push({
             nombre: tarea,
             id: id,
@@ -75,7 +78,7 @@ botonAgregar.addEventListener("click", () =>{
         input.value = "";
     }
 });
-list.addEventListener("click", function (event) {
+lista.addEventListener("click", function (event) {
     const element = event.target;
     const elementData = element.attributes.data.value;
     if (elementData == "hecho") {
@@ -89,7 +92,7 @@ let data = localStorage.getItem("TODO");
 if (data) {
     LIST = JSON.parse(data);
     id = LIST.length;
-    cargaLista(LIST);
+    cargarLista(LIST);
 } else{
     LIST=[];
     id=0;
@@ -99,5 +102,5 @@ function cargarLista(array) {
         function (item) {
             agregarTarea(item.nombre, item.id, item.hecho, item.eliminar);
         }
-    );
+    )
 };

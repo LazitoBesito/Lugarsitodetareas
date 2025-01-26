@@ -1,9 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 :root {
     --color-primario: #af0745;
     --color-secundario: #fa4069;
     --bg: #fe9c6b;
     --text-size: 1.5rem;
-    --color-text: #ffff;
+    --color-text: #232323;
 }
 
 body {
@@ -15,12 +22,16 @@ body {
     display: flex;
     justify-content: center;
 }
-.container{
+/* para darle color al contenedor*/
+.contenedor{
     max-width: 80%;
     width: 400px;
     height: 600px;
-    margin: 0 auto;
+    margin: auto;
     padding: 40px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5)
 
 }
 .encabezado{
@@ -65,13 +76,13 @@ margin-bottom: 20x;
     background-color: var(--bg);
     border-radius: 15px;
     padding: 10px;
-    color: #ffff;
+    color: #252424;
     margin: 5px 0;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-between;
 }
-#lista li:hover{
+#lista i:hover{
     color: #fe9c6b;
 
 }
